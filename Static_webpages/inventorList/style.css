@@ -1,0 +1,43 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+}
+
+header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.inventor-layout {
+  display: flex;              /* side by side */
+  align-items: center;
+  justify-content: flex-start;
+  margin: 30px auto;
+  width: 70%;
+}
+
+#inventor-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;         /* circular image */
+  border: 3px solid black;    /* black border around circle */
+  object-fit: cover;
+  margin-right: 25px;         /* spacing between circle and box */
+}
+
+.inventor-box {
+  border: 3px solid black;    /* black border around box */
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #fff;
+  flex: 1;                    /* box expands to fill space */
+}
+
+.usage {
+  font-style: italic;
+  color: #333;
+  margin-top: 10px;
+}

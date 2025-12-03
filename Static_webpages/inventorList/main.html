@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programming Language Inventors</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <center>
+    <header>Programming Language Inventors</header>
+    <label for="inventor-select">Choose an inventor:</label>
+    <select name="inventor-select" id="inventor-select">
+      <option value="guido">Guido van Rossum - Python</option>
+      <option value="gosling">James Gosling - Java</option>
+      <option value="ritchie">Dennis Ritchie - C</option>
+      <option value="stroustrup">Bjarne Stroustrup - C++</option>
+      <option value="matsumoto">Yukihiro Matsumoto - Ruby</option>
+      <option value="wall">Larry Wall - Perl</option>
+      <option value="bergstrom">Andreas Bergstrom - Go</option>
+      <option value="eich">Brendan Eich - JavaScript</option>
+      <option value="griesemer">Robert Griesemer - Go</option>
+      <option value="odersky">Martin Odersky - Scala</option>
+    </select>
+  </center>
+
+  <!-- Layout with circle image and box -->
+  <div class="inventor-layout">
+    <img id="inventor-img" src="" alt="Inventor Image">
+    <div id="inventor-box" class="inventor-box">
+      <h3 id="inventor-name"></h3>
+      <p id="inventor-desc"></p>
+      <p id="inventor-usage" class="usage"></p>
+    </div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+#initializing and creating a new repo
+
+1.git init 
+2.git add .
+3.git commit -m "message"
+4.git remote add origin <remote url>
+5.git push origin master -----main for newer versions 
+6.check in remote repo
+git status 
+
+#if we add or change the existing files
+
+1. git status
+2. git add .
+3. git commit -m "message"
+4. git push origin master
+
+#if you want to retrieve the remote repository to local
+
+git clone <remote-url>
