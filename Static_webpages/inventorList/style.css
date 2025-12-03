@@ -31,7 +31,30 @@ header {
   border-radius: 50%;         /* makes image circular */
 }
 .square {
-  border-radius: 0;           /* keeps image square */
+  width: 150px;
+  height: 150px;
+  border: 3px solid black;     
+  border: 10px solid blue;   /* Base black border */
+  border-radius: 8px;
+  animation: pulse-glow 2s infinite alternate;
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 
+      0 0 10px blue,              /* Blue glow */
+      0 0 20px lightblue;         /* Light-blue faint pulse */
+  }
+  50% {
+    box-shadow: 
+      0 0 20px blue, 
+      0 0 40px lightblue;         /* Stronger pulse */
+  }
+  100% {
+    box-shadow: 
+      0 0 50px rgb(5, 163, 66), 
+      0 0 20px rgb(115, 209, 148);         /* Back to softer glow */
+  }
 }
 
 .inventor-box {
