@@ -22,10 +22,16 @@ header {
 #inventor-img {
   width: 140px;
   height: 140px;
-  border-radius: 50%;         /* circular image */
+
   border: 3px solid black;    /* black border around circle */
   object-fit: cover;
   margin-right: 25px;         /* spacing between circle and box */
+}
+.circle {
+  border-radius: 50%;         /* makes image circular */
+}
+.square {
+  border-radius: 0;           /* keeps image square */
 }
 
 .inventor-box {
