@@ -1,25 +1,19 @@
-// Select all checkboxes with class "subject"
 let subjects = document.querySelectorAll('.subject');
-
-// Select the span with id "total"
 let totalBox = document.getElementById('total');
-
-// Select the confirmation message div
 let confirmationBox = document.getElementById('confirmationMessage');
 
 subjects.forEach(item => {
     item.addEventListener('change', () => {
-        let total = 0;  // initialize correctly
+        let total = 0;
         subjects.forEach(sub => {
             if (sub.checked) {
                 total += parseInt(sub.value);
             }
         });
-        totalBox.textContent = "" + total;  // update span text
+        totalBox.textContent = "" + total;
     });
 });
 
-// FIX: Corrected getElementById (no space) and match form id
 document.getElementById('regForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
@@ -37,20 +31,23 @@ document.getElementById('regForm').addEventListener('submit', function(event) {
     if (selectedSubjects.length === 0) {
         confirmationBox.textContent = "⚠️ Please select at least one course to register.";
         confirmationBox.style.color = "red";
+        alert("⚠️ Please select at least one course to register.");
         return;
     }
 
-    // ✅ Get student name from input field
     let studentName = this.querySelector('input[name="studentName"]').value.trim();
 
-    let message = "Hello " + studentName + ",<br><br>";
-    message += "You have successfully registered for the following courses:<br>";
-    message += selectedSubjects.join(", ") + "<br><br>";
+    let message = "Hello " + studentName + ",\n\n";
+    message += "You have successfully registered for the following courses:\n";
+    message += selectedSubjects.join(", ") + "\n\n";
     message += "Total Registration Fee: $" + totalFee;
 
-    // Display message in the webpage
-    confirmationBox.innerHTML = message;
+    // Show in webpage
+    confirmationBox.innerHTML = message.replace(/\n/g, "<br>");
     confirmationBox.style.color = "green";
+
+    // Show in alert
+    alert(message);
 
     this.reset();
     totalBox.textContent = "$0";
