@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Registration</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Course Registration Form</h2>
+        <form id="regForm">
+            <label>Student Name</label>
+            <input type="text" name="studentName" placeholder="Enter your full name" required>
+            <div></div>
+            <label>Course selection</label>
+            <div class="subject-list">
+                <label><input type="checkbox" class="subject" value="110"> DSA($110)</label>
+                <label><input type="checkbox" class="subject" value="120"> OS($120)</label>
+                <label><input type="checkbox" class="subject" value="130"> DBMS($130)</label>
+                <label><input type="checkbox" class="subject"  value="140"> JP($140)</label>
+            </div>
+            <div class="total-box">
+            total registration fee: 
+            $<span id="total">0</span>
+            </div>
+            <button type="submit">Register</button>
+            <div id="confirmationMessage" class="confirmation"></div>
+
+        </form>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
