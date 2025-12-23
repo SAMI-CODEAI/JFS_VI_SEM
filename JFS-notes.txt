@@ -1,0 +1,30 @@
+D:\PLACEMENTS\JFS\JFS_VI_SEM\Maven_Projects>mvn archetype:generate -DgroupId=com.skillnext2 -DartifactId=learning -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+D:\PLACEMENTS\JFS\JFS_VI_SEM\Maven_Projects>cd learning
+
+D:\PLACEMENTS\JFS\JFS_VI_SEM\Maven_Projects\learning>mvn compile------gengerate class package
+D:\PLACEMENTS\JFS\JFS_VI_SEM\Maven_Projects\learning>mvn test
+D:\PLACEMENTS\JFS\JFS_VI_SEM\Maven_Projects\learning>mvn package-------generate jar files
+D:\PLACEMENTS\JFS\JFS_VI_SEM\Maven_Projects\learning>cd target
+D:\PLACEMENTS\JFS\JFS_VI_SEM\Maven_Projects\learning\target>java -cp learning-1.0-SNAPSHOT.jar com.skillnext2.App
+Hello World!
+
+
+
+mvn dependency:copy-dependencies
+mvn install
+mv exec:java -Dexec.com.skillnext2.App
+
+
+cd employee_jdbc
+mvn dependency:copy-dependencies
+mvn exec:java -Dexec.mainClass=com.skillnext2.App
+
+
+---------
+WEBAPPLICATION
+D:\PLACEMENTS\JFS\JFS_VI_SEM\Maven_Projects>mvn archetype:generate -DgroupId=com.skillnext2 -DartifactId=WebappDemo -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+
+
+
+mvn archetype:generate -DgroupId=com.skillnext2 -DartifactId=hibernate-employee -DarchetypeArtifactId=maven-archetype-quick start -DinteractiveMode=false
