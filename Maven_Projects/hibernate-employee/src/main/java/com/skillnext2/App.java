@@ -3,9 +3,6 @@ package com.skillnext2;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import com.skillnext2.Employee;
-import com.skillnext2.HibernateUtil;
-
 public class App {
     public static void main(String[] args) {
 

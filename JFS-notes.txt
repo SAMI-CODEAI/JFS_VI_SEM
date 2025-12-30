@@ -28,3 +28,7 @@ D:\PLACEMENTS\JFS\JFS_VI_SEM\Maven_Projects>mvn archetype:generate -DgroupId=com
 
 
 mvn archetype:generate -DgroupId=com.skillnext2 -DartifactId=hibernate-employee -DarchetypeArtifactId=maven-archetype-quick start -DinteractiveMode=false
+
+------------------------------
+hibernate
+mvn archetype:generate -DgroupId=com.skillnext2 -DartifactId=hibernate-student -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
