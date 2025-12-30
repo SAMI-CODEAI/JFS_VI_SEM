@@ -32,3 +32,6 @@ mvn archetype:generate -DgroupId=com.skillnext2 -DartifactId=hibernate-employee 
 ------------------------------
 hibernate
 mvn archetype:generate -DgroupId=com.skillnext2 -DartifactId=hibernate-student -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+mvn archetype:generate -DgroupId=com.skillnext2 -DartifactId=student-webapp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
