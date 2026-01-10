@@ -35,3 +35,83 @@ mvn archetype:generate -DgroupId=com.skillnext2 -DartifactId=hibernate-student -
 
 
 mvn archetype:generate -DgroupId=com.skillnext2 -DartifactId=student-webapp -DarchetypeArtifactId=maven-archetype-webapp -DinteractiveMode=false
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------
+Write a hibernate application to perform CRUD operations on Course table
+================================================
+i) Open Eclipse IDE
+ii) Create a Maven Project
+File->New-> Maven Project->select Create a simple project checkbox-> click on Next->
+GroupId:Hibernate
+ArtifcatId:Hib_CRUD_1
+click on Finish button
+
+ii) open pom.xml file
+	<version>0.0.1-SNAPSHOT</version>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.6.15.Final</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.33</version>
+		</dependency>  
+	</dependencies>
+
+save the pom.xml file to see the dependencies downloading, after downloading we will 
+observe one folder called Maven Dependencies
+
+
+iii) Right click on the project Hib_CRUD_1 -> New-> Class
+Name:Course
+click on Finish
+
+public class Course {
+	private int cid;
+	private String cname;
+	private String ccontent;
+	private int duration;
+	
+	generate constructors, setter, getter methods, equals(), hashCode() and toString() methods
+  
+	
+} 
+	Right click on the class-> Source-> Generate Constructor from super class
+	Right click on the class-> Source-> Generate Constructor using fields
+	Right click on the class-> Source-> Generate Getters and Setters
+	Right click on the class-> Source-> Generate hashCode() and equals()
+	Right click on the class-> Source-> Generate toString()
+
+  iv) Create a hibernate mapping file
+Right click on the src/main/java-> New-> Others->XML File
+click on Next-> 
+File Name:Course.hbm.xml
+click on Next-> Next-> Finish
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+
+	<class name="Course" table="course">
+		<id name="cid" >
+			<generator class="assigned"/>
+		</id>
+		<property name="cname" column="cname" />
+		<property name="ccontent" column="ccontent"/>
+		<property name="duration" column="duration"/>
+	</class>
+
+</hibernate-mapping>
+
