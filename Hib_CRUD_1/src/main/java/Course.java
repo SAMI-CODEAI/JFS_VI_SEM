@@ -75,10 +75,11 @@ public class Course {
 	}
 	@Override
 	public String toString() {
-		return "Course [cid=" + cid + ", cname=" + cname + ", ccontent=" + ccontent + ", duration=" + duration
-				+ ", getCid()=" + getCid() + ", getCname()=" + getCname() + ", getCcontent()=" + getCcontent()
-				+ ", getDuration()=" + getDuration() + ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
-				+ ", toString()=" + super.toString() + "]";
+		return cid+" "+cname+" "+ccontent+" "+duration;
+//		return "Course [cid=" + cid + ", cname=" + cname + ", ccontent=" + ccontent + ", duration=" + duration
+//				+ ", getCid()=" + getCid() + ", getCname()=" + getCname() + ", getCcontent()=" + getCcontent()
+//				+ ", getDuration()=" + getDuration() + ", hashCode()=" + hashCode() + ", getClass()=" + getClass()
+//				+ ", toString()=" + super.toString() + "]";
 	}
 	
 //	generate constructors, setter, getter methods, equals(), hashCode() and toString() methods

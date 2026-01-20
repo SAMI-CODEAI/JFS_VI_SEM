@@ -2,6 +2,8 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\PLACEMENTS\JFS\JFS_VI_SEM"/>
+			<item value="D:\PLACEMENTS\JFS\JFS_VI_SEM\2025_SNB2"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -13,7 +15,7 @@
 		</list>
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
-		<item key="catalog" value="All Catalogs"/>
+		<item key="catalog" value="https://repo1.maven.org/maven2/archetype-catalog.xml"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -44,11 +46,14 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
+			<item value="hib"/>
 			<item value="Hibernate"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="hib_crud_1"/>
+			<item value="hib_curd_1"/>
 			<item value="Hib_CRUD_1"/>
 		</list>
 		<list key="projectNameTemplate">

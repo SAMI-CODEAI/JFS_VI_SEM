@@ -74,6 +74,9 @@ save the pom.xml file to see the dependencies downloading, after downloading we 
 observe one folder called Maven Dependencies
 
 
+click on project right click properties ->java build path ->add library->jre system library
+if no default    ->add library->standard vm->select jdk path
+
 iii) Right click on the project Hib_CRUD_1 -> New-> Class
 Name:Course
 click on Finish
@@ -98,6 +101,8 @@ public class Course {
 Right click on the src/main/java-> New-> Others->XML File
 click on Next-> 
 File Name:Course.hbm.xml
+hbm->hibernate  mapping
+
 click on Next-> Next-> Finish
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
@@ -115,3 +120,188 @@ click on Next-> Next-> Finish
 
 </hibernate-mapping>
 
+
+
+
+------------
+Suryanarayana I.N.V, [1/20/2026 10:15 AM]
+Hibernate:
+=======
+1) Create skillnext2_db schema from MySQL Workbench
+
+2) open Eclipse IDE (Eclipse Enterprise Edition)
+https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2022-06/R/eclipse-jee-2022-06-R-win32-x86_64.zip
+Workspace:D:\2025_SNB2
+
+3) File->New->Maven Project
+click on Create a Simple Project checkbox
+click on Browse button and choose D:\2025_SNB2 as a workspace location
+click on Next-> 
+Group Id:hib
+Artifact Id:hib_crud_1
+click on Finish button
+
+4) directory structure as below
+hib_crud_1
+  src/main/java
+    Course.java
+    Course.hbm.xml
+    hibernate.cfg.xml
+    SaveClient1.java
+    GetClient2.java
+    ListClient3.java
+    UpdateClient4.java
+    DeleteClient5.java
+  pom.xml
+
+Suryanarayana I.N.V, [1/20/2026 10:18 AM]
+5) open pom.xml file, after <version> add the below dependencies
+<dependencies>
+    <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.6.15.Final</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>8.0.33</version>
+    </dependency>
+  </dependencies>
+
+
+6) Configure JRE of your system
+
+7) To create a Java Bean
+Right click on the project-> New-> Class
+Package:remove package name
+Name:Course
+click on Finish button
+
+public class Course {
+  
+  private int cid;
+  private String cname;
+  private String ccontent;
+  private int duration;
+  
+  /* Right click on the class-> source-> 
+  Generate Constructor from super class
+  Generate Constructor using fields
+  Generate getters and setters
+  Generate equals() and hashCode() */
+  
+  public String toString() {
+    return cid+" "+cname+" "+ccontent+" "+duration;
+  }
+
+}
+
+save and close the Course java bean
+
+
+
+8) To map the Course java bean to course table, we need to generate one Course.hbm.xml file
+Right click on src/main/java->New-> click on other-> type xml, select XML file
+click on Next-> Name:Course.hbm.xml and click on Finish button
+select Source tab in the bottom of the file
+
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="Course" table="course" dynamic-insert="true" dynamic-update="true">
+    <id name="cid" column="cid">
+      <generator class="assigned"/>
+    </id>
+    <property name="cname" column="cname"/>
+    <property name="ccontent" column="ccontent"/>
+    <property name="duration" column="duration"/>
+  </class>
+</hibernate-mapping>
+
+
+
+9) Generate hibernate.cfg.xml file
+<!DOCTYPE hibernate-configuration PUBLIC
+  "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/skillnext2_db</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">root</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping resource="Course.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
+
+
+
+
+10) Create a java factory class
+Right click on the src/main/java-> New-> Class
+Name:HSFactory
+
+public class HSFactory {
+
+  static Session session;
+  
+  public static Session getSession() {
+    try {
+      if(session==null) {
+        Configuration cfg=new Configuration();
+        cfg.configure("/hibernate.cfg.xml");
+        SessionFactory sf=cfg.buildSessionFactory();
+        session=sf.openSession();
+      }
+    } catch(Exception e) {
+      e.printStackTrace();
+    }
+    return session;
+  }
+}
+
+
+
+
+**** ctrl+shift+o to import packages only org
+
+
+
+
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+public class SaveClient1 {
+
+  public static void main(String[] args) throws Exception {
+    Session session=HSFactory.getSession();
+    Transaction t=session.beginTransaction();
+    try {
+      Course c1=new Course(1, "Core Java", "OOPs" ,60);
+      Course c2=new Course(2, "Adv Java", "JDBC,Servlets,JSP" ,60);
+      Course c3=new Course(3, "Hibernate", "IS-A,HAS-A" ,60);
+      Course c4=new Course(4, "Spring", "IoC, AOP" ,60);
+      Course c5=new Course(5, "Spring Boot", "Spring Boot, Microservice with JPA" ,60);
+      session.save(c1); session.save(c2); session.save(c3);
+      session.save(c4); session.save(c5);
+      session.flush();
+      t.commit();
+      System.out.println("TX Success");
+    } catch(Exception e) {
+      t.rollback();
+      System.out.println("TX Failed");
+      e.printStackTrace();
+    }
+
+  }
+
+}
